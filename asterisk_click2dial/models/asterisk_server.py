@@ -187,7 +187,7 @@ class AsteriskServer(models.Model):
         # Compatibility with Asterisk 1.4
         if (
                 chan.get('State') == 'Up' and
-                sip_account in chan.get('Link', '')):
+                sip_account in chan.get('BridgedChannel', '')):
             _logger.debug("Found a matching Event in 'Up' state")
             return chan.get('CallerIDNum')
         return False
